@@ -1,33 +1,20 @@
 <template>
-    <button @click="handler">리스트생성</button>
-    <ul>
-        <li v-for="{id, name} in newFruits" :key="id" v-bind:id="id">
-            {{name}}-{{id}}
-        </li>
-    </ul>
-    
+    <MyBtn >BANANA</MyBtn>
+    <MyBtn v-bind:color="color">BANANA</MyBtn>
+    <MyBtn large color="orange" >APPLE</MyBtn>
+    <MyBtn >BANANA</MyBtn>
 </template>
 
 <script>
-import shortid from 'shortid'
+import MyBtn from '~/components/MyBtn'
 
-export default {
+export default { 
+    components:{
+        MyBtn
+    },
     data(){
-        return {
-           fruits:['apple','banana','cherry'],           
-        }
-    },
-    computed:{
-        newFruits(){
-            return this.fruits.map(fruit => ({
-                id:shortid.generate(),
-                name:fruit              
-            }))
-        }
-    },
-    methods:{
-        handler(){
-            this.fruits.push('orange')
+        return{
+            color:'#000'
         }
     }
 }
