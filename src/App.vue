@@ -19,5 +19,5 @@ export default({
 </script>
 
 <style>
-h1{color:blue}
+h1{color:red}
 </style>
