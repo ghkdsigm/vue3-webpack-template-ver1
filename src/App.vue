@@ -1,23 +1,17 @@
 <template>
-    <h1>{{message}}</h1>
-    <HelloWorld />
+    <Fruits />
 </template>
 
 <script>
-import HelloWorld from '~/components/HelloWorld'
+import Fruits from '~/components/Fruits'
 
-export default({
+export default {
     components: {
-        HelloWorld
-    },
-    data() {
-       return{
-           message: 'Hello Vue!!!' 
-       }
+        Fruits
     }
-})
+}
 </script>
 
 <style>
-h1{color:red}
+    h1{color:red}
 </style>
