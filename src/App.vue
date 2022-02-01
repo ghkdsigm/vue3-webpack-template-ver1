@@ -1,9 +1,8 @@
 <template>
     <button v-on:click="add">add</button>
     <h1>{{print}}</h1>
-    <h1>
-        {{ msg.split('').reverse().join('') }}
-    </h1>
+    <h1>{{msg}}</h1>
+    <button v-on:click="changtxt">changtxt</button>
 </template>
 
 <script>
@@ -24,12 +23,20 @@ export default {
             set(value){
                 this.print = value
             }
-        }        
+        }
+    },
+    watch:{
+        msg(){
+            console.log('msg', this.msg)
+        }
     },
     methods:{
         add() {
             this.printed += '!!'
-        }
+        },
+        changtxt(){
+            this.msg = 'good!!'
+        }   
     }
 }
 </script>
