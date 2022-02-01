@@ -1,36 +1,34 @@
 <template>
-    <button @click="handler">클릭</button>
-    <template v-if="isShow">
-        <ul>
-            <li>1</li>
-            <li>2</li>
-        </ul>
-    </template>
-    <!--
-    <div v-show="isShow">
-        <ul>
-            <li>1</li>
-            <li>2</li>
-        </ul>
-    </div>
-    -->
+    <button @click="handler">리스트생성</button>
+    <ul>
+        <li v-for="{id, name} in newFruits" :key="id" v-bind:id="id">
+            {{name}}-{{id}}
+        </li>
+    </ul>
+    
 </template>
 
 <script>
-import Fruits from '~/components/Fruits'
+import shortid from 'shortid'
 
 export default {
     data(){
         return {
-           isShow: true,
-           count:0
+           fruits:['apple','banana','cherry'],           
         }
     },
-    methods:{        
-        handler (){
-            this.isShow = !this.isShow
-            this.count += 1
-        }   
+    computed:{
+        newFruits(){
+            return this.fruits.map(fruit => ({
+                id:shortid.generate(),
+                name:fruit              
+            }))
+        }
+    },
+    methods:{
+        handler(){
+            this.fruits.push('orange')
+        }
     }
 }
 </script>
