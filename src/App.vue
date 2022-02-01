@@ -1,29 +1,15 @@
 <template>
-    <button @click="message ='good?'">click</button>
-    <h2>app{{message}}</h2>
-    <Parent />    
+    <Hello ref="hello" />
 </template>
 
 <script>
-import Parent from '~/components/Parent'
-import { computed } from 'vue'
-
+import Hello from '~/components/hello'
 export default { 
-    components:{
-        Parent
+    components: {
+        Hello
     },
-    data(){
-        return{
-            message:'Hello World',
-           
-        }
-    },
-    provide(){
-        return{
-            msg:computed(() => {
-                return this.message
-            })
-        }
+    mounted(){
+        console.log(this.$refs.hello.$el)
     }
 }
 </script>
