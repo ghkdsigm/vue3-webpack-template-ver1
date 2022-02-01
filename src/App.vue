@@ -3,6 +3,10 @@
     <h1>{{print}}</h1>
     <h1>{{msg}}</h1>
     <button v-on:click="changtxt">changtxt</button>
+    <h2 v-bind:class="{ active: isActive }" @click="activate">클릭</h2>
+    <h3 v-bind:style="{color,fontSize}" @click="trans">클릭</h3>
+    <h3 v-bind:style="fontStyle">클릭</h3>
+    <h3 v-bind:style="[fontStyle,backgroundStyle]">클릭</h3>
 </template>
 
 <script>
@@ -12,7 +16,17 @@ export default {
     data(){
         return {
             msg:'Hello',
-            print:'hey whatup'
+            print:'hey whatup',
+            isActive: false,
+            color: 'red',
+            fontSize: '30px',
+            fontStyle: {
+                color:'orange',
+                fontSize: '20px'
+            },
+            backgroundStyle: {
+                backgroundColor:'gray'
+            },
         }
     },
     computed:{
@@ -36,11 +50,20 @@ export default {
         },
         changtxt(){
             this.msg = 'good!!'
+        },
+        activate(){
+            this.isActive = true
+            
+        },
+        trans (){
+            this.color = 'blue',
+            this.fontSize = '100px'
         }   
     }
 }
 </script>
 
 <style>
-    h1{color:red}
+    h1{color:skyblue;}
+    .active{color:red;}
 </style>
