@@ -43,6 +43,7 @@
   ],
   "dependencies": {
     "node-sass": "^7.0.1",
+    "swiper": "^5.3.7",
     "vue": "^3.2.29"
   }
 }
